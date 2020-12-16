@@ -24,4 +24,12 @@ export class AppComponent {
   onAdd(item) {
     this.list.push(item);
   }
+
+  onAnimate() {
+    this.state == 'normal' ? this.state = 'highlighted' : this.state = 'normal';
+  }
+
+  onShrink() {
+
+  }
 }
