@@ -14,9 +14,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         backgroundColor: 'blue',
         transform: 'translateX(100px)'
       })),
-      // transition('normal => highlighted', animate(300)),
-      // transition('highlighted => normal', animate(800)),
-      // or use <=> instead of =>
       transition('normal <=> highlighted', animate(300))
     ]),
     trigger('wildState', [
@@ -34,7 +31,16 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       })),
       transition('normal => highlighted', animate(300)),
       transition('highlighted => normal', animate(800)),
-      transition('shrunked <=> *', animate(500)),
+      transition('shrunked <=> *', [
+        style({
+          backgroundColor: 'orange',
+          borderRadius: '0px'
+        }),
+        animate(1000, style({
+          borderRadius: '50px'
+        })),
+        animate(500)
+      ])
     ])
   ]
 })
